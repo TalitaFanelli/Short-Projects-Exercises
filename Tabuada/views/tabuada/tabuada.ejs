@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+
+    <div class="starter-template">
+        <h1>Tabuada do n&uacute;mero <%= num %>:</h1>
+        <table class="table table-striped table-bordered">
+                <tr>
+                        <td>N&Uacute;MERO</td>
+                        <td>OPERADOR</td>
+                        <td>N&Uacute;MERO</td>
+                        <td>OPERADOR</td>
+                        <td>RESULTADO</td>
+                    </tr>    
+            <% tabuadas.map(item => { %>
+                <tr>
+                    <td><%= item.num %></td> <!-- &nbsp; dá espaço entre caracteres -->
+                    <td>x</td>
+                    <td><%= item.i %></td>
+                    <td> =</td>
+                    <td><%= item.resultado %></td>
+                    <% }) %>
+                </tr>
+        </table>
+
+    <% include ../partials/footer.ejs %>
