@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+
+<h1>Update Person</h1>
+<p>
+<a href="/people">List People</a>
+</p>
+
+<%= JSON.stringify(person) %>
+
+<form method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<%= person.name %>">
+  </div>
+
+  <div class="form-group">
+  <label for="birthday">Birthday</label>
+  <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Birthday" value="<%= person.birthday %>">
+</div>
+
+<div class="form-group">
+<label for="job">Job</label>
+<input type="text" class="form-control" id="job" name="job" placeholder="Job" value="<%= person.job %>">
+</div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<% include ../partials/footer.ejs %>

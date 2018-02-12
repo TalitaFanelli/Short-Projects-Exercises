@@ -1,0 +1,26 @@
+<% include ../partials/header.ejs %>
+
+<h1>People</h1>
+<p>
+<a href="/people/create">New person</a>
+</p>
+<table class="table table-striped table-hover table-bordered">
+    <tr>
+        <th>NAME</th>
+        <th>ACTION</th>
+    </tr>
+
+    <% peopleModel.map(peopleModel => { %>
+    <tr>
+    <td><%= peopleModel.name %></td>
+    <td>
+    <div class="btn-group" role="group" aria-label="...">
+    <a type="button" class="btn btn-warning" href="/people/update/<%= peopleModel.id %>">Edit</a>
+    <a type="button" class="btn btn-danger" href="/people/delete/<%= peopleModel.id %>" onclick="return confirm('Do you really want to delete it?')">Delete</a>
+    </div>
+    </td>
+    </tr>
+    <% }) %>
+
+</table>
+<% include ../partials/footer.ejs %>
