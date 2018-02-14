@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+
+        <h1>New Person</h1>
+        <p><a href="/people">Back to People's list</a></p>
+
+        <form method="post">
+        <div class="form-group">
+        <label for="name">
+        Name
+        </label><br/>
+        <input type="text" class="form-group" id="name" name="name" placeholder="Insert your name"/>
+        </div>
+        <div class="form-group">
+        <label for="birthday">
+        Birthday
+        </label><br/>
+        <input type="text" class="form-group" id="birthday" name="birthday" placeholder="Insert your birthday"/>
+        </div>
+        <div class="form-group">
+        <label for="job">
+        Job
+        </label><br/>
+        <input type="text" class="form-group" id="job" name="job" placeholder="Insert your job"/><br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+
+<% include ../partials/footer.ejs %>
