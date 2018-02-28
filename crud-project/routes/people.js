@@ -1,8 +1,10 @@
-const express = require('express')
+﻿const express = require('express')
 const peopleController = require('../controller/people')
 
-    const peopleRouter = ({ connection }) => { 
+//const peopleRouter = (dependencies) => {
 
+    const peopleRouter = ({ connection }) => {
+    // console.log(dependencies)
     const router = express.Router()
     
     router.get('/', peopleController.index.bind(null, connection))

@@ -1,10 +1,11 @@
-const express = require('express')
+﻿const express = require('express')
 const path = require('path')
 const app = express()
 const port = process.env.PORT || 3000
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
 
+//DB Connection
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -20,6 +21,7 @@ const people = require('./routes/people')
 
 app.use(bodyParser.urlencoded({extended: false}))
 
+//Assets import
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
@@ -28,6 +30,9 @@ app.get('/', (req, res) => {
 
 app.use('/people', people(dependencies))
 
+//Controllers import
+
+//View Engine
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 

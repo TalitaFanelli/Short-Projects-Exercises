@@ -10,17 +10,45 @@
         <th>ACTION</th>
     </tr>
 
-    <% peopleModel.map(peopleModel => { %>
+    <% results.data.map(peopleModel => { %>
     <tr>
     <td><%= peopleModel.name %></td>
     <td>
     <div class="btn-group" role="group" aria-label="...">
-    <a type="button" class="btn btn-warning" href="/people/update/<%= peopleModel.id %>">Edit</a>
-    <a type="button" class="btn btn-danger" href="/people/delete/<%= peopleModel.id %>" onclick="return confirm('Do you really want to delete it?')">Delete</a>
+    <a role="button" class="btn btn-warning" href="/people/update/<%= peopleModel.id %>">Edit</a>
+    <a role="button" class="btn btn-danger" href="/people/delete/<%= peopleModel.id %>" onclick="return confirm('Do you really want to delete it?')">Delete</a>
     </div>
     </td>
     </tr>
     <% }) %>
 
 </table>
+
+<div class="form-inline">Show
+ <select name="select" id="select" class="form-control" id="exampleFormControlSelect1" style="width:75px;">
+  <option value="25">25</option>
+  <option value="50">50</option>
+  <option value="75">75</option>
+  <option value="100">100</option>
+</select>
+registers
+</div><br/>
+
+Mostrar <a href="/people?pageSize=10">10</a>  <a href="/people?pageSize=25">25</a>  <a href="/people?pageSize=50">50</a>  <a href="/people?pageSize=100">100</a> registers
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+
+  <% if(results.pagination.currentPage > 0) { %>
+    <li class="page-item"><a class="page-link" href="/people?page=<%= results.pagination.currentPage - 1 %>&pageSize=<%= results.pagination.pageSize %>">Previous</a></li>
+    <% } %>
+    <% for(let i = 0; i < results.pagination.pages; i++) { %>
+    <li class="page-item <% if(i == results.pagination.currentPage){ %> active <% } %>"><a class="page-link" href="/people?page=<%= i %>&pageSize=<%= results.pagination.pageSize %>"><%= i + 1 %></a></li>
+    <% } %>
+    <% if(results.pagination.currentPage < results.pagination.pages - 1) { %>
+    <li class="page-item"><a class="page-link" href="/people?page=<%= results.pagination.currentPage + 1 %>&pageSize=<%= results.pagination.pageSize %>">Next</a></li>
+    <% } %>
+  </ul>
+</nav>
+
 <% include ../partials/footer.ejs %>
