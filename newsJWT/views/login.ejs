@@ -1,0 +1,20 @@
+<% include partials/header %>
+
+      <div class="starter-template">
+        <h1>Login</h1><br/>
+
+      <form class="form-signin" method="post">
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">JWT</h1>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input name="username" type="text" id="jwt-username" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input name="password" type="password" id="jwt-password" class="form-control" placeholder="Password" required> <br/>
+      <button class="btn btn-lg btn-primary btn-block" type="button" id="jwt-login">Get token</button></br>
+      <textarea id="token"></textarea></br></br>
+      <button class="btn btn-lg btn-primary btn-block" type="button" id="jwt-get-user">Get user</button></br>
+      <textarea id="user"></textarea>
+    </form>
+      </div>
+
+<% include partials/footer %>
